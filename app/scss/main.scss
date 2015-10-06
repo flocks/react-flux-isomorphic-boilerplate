@@ -1,0 +1,31 @@
+
+$body-background-color: #eaf1f9;
+$main-text-color: #7c8ca5;
+
+$browserupgrade: #bb1736;
+
+$white: #fff;
+
+* {
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {margin: 0;}
+
+a {color: $main-text-color;}
+
+body {
+  background: $body-background-color;
+  color: $main-text-color;
+  font-family: 'Whitney', sans-serif;
+}
+
