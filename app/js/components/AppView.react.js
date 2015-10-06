@@ -29,7 +29,7 @@ var App = React.createClass({
         if (this.state.data == null) {
             return (
                 <div>
-                    <h2>App ffezfzzefz</h2>
+                    <h2>App</h2>
                     <p>..loading..</p>
                 </div>
             );        

@@ -1,4 +1,5 @@
 - git clone
 - npm install
 - gulp in one tab, node server/app.js in another tab
+- open localhost:3090
 - npm test to run tests
