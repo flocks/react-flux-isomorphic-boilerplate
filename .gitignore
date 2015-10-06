@@ -1,0 +1,7 @@
+bower_components
+node_modules
+dist
+coverage
+config
+configs/dev.js
+npm-debug.log

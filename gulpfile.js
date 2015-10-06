@@ -7,7 +7,6 @@ var gulp = require("gulp"),
     runSequence = require("run-sequence"),
     del = require("del"),
     argv = require("yargs").argv,
-    historyApiFallback = require("connect-history-api-fallback"),
     $ = require("load-plugins")("gulp-*");
 
 var exec = require('child_process').exec;
@@ -64,8 +63,10 @@ gulp.task("minifycss", function() {
 
 gulp.task("css", ["scsslint", "scss"]);
 
+gulp.task("cssprod", ["scss"]);
+
 gulp.task("cssProd", function() {
-    return runSequence("css", "minifycss");
+    return runSequence("cssprod", "minifycss");
 });
 
 
@@ -128,7 +129,7 @@ gulp.task("uglify", function() {
 gulp.task("js", ["eslint", "watchify"]);
 
 gulp.task("jsProd", function() {
-    return runSequence("eslint", "browserify", "uglify");
+    return runSequence("browserify", "uglify");
 });
 
 
@@ -187,5 +188,6 @@ gulp.task("site", ["changeSite"], function() {
 });
 
 gulp.task("production", function() {
-    runSequence("cleanDist", ["html", "cssProd", "jsProd", "assetsProd"], "gzip");
+    runSequence("cleanDist", ["html", "cssProd", "jsProd", "assetsProd"]);
 });
+
