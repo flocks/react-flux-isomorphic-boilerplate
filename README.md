@@ -1,0 +1,4 @@
+- git clone
+- npm install
+- gulp in one tab, node server/app.js in another tab
+- npm test to run tests
