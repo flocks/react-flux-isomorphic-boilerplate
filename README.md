@@ -6,15 +6,41 @@ The boilerplate is a kickstarter if you like to work with the following stack
 - Browserify as dependancy management
 - gulp as workflow tool
 - react-router for routes handling
-- nodejs with expressjs for isomorphic app ( The nodeJS server is able to read reactJS and render directly HTML : great for SEO and perceived load time)
+- scss for css
+- nodejs with expressjs for isomorphic app
+- karma and jasmine for testing
 - heroku for hosting the App
+
+
+Instructions 
 
 - git clone
 - npm install
-- gulp in one tab, node server/app.js in another tab
+- gulp 
 - open localhost:3090
+
 - npm test to run tests
 
+Heroku
 
-This boilerplate is optimised for heroku app. That's why all the gulp dependencies are in "dependencies" instead of "devDependencies". Because
-Heroku will run npm install --production and will skip all devDependicies, yet we need gulp to compile the project ( browserify the js, uglify it, copy assets, optimise image..and so on  )
+Please notice, this boilerplate is optimised for heroku applications. That's why all the gulp dependencies are in "dependencies" instead of "devDependencies". Because Heroku will run npm install --production and will skip all devDependicies, yet we need gulp to compile the project ( browserify the js, uglify it, copy assets, optimise image..and so on). Also please notice the npm hook script "postinstall" will run the task "gulp production" after running npm install on heroku server.
+
+If you don't use Heroku to host your app, you can easily modify the gulpfile and the package.json to fill your need.
+
+
+Gulp process
+
+gulp default task will prepare the /dist folder by copying all the assets ( images, fonts ) and index.ejs. It will compile all scss file into one single css file called main.css. Browserify will also compile all your js file into a single main.js file. Then it will launch the nodeJS app
+which renders the index.ejs. Obvisously, the task "watchify" is launched, so any changes on your file will trigger Browserify to recompile the js. Please notice, it only re-compile the dependencies affected by the change. 
+
+Gulp production task will achieve pretty much the same except it will uglify the js and the css and optimize images with gulp-imagemin.
+
+Isomorphic Javascript
+
+Isomorphic javascript, or rather now Universal Javascript, means a javascript codebase which can be exectuted both server and client side. You app become easily indexable by google. Plus it considerably increase the "perceived time load" of your app. The user experence become improved, especially on mobile device with small brandwitdh. 
+
+[ link to my article ]
+
+Tests
+
+Simply run npm test to launch test. Tests are launched by Karma and written with Jasmine. I choose Jasmine because I noticed Jest was really slow when it comes to test react components.

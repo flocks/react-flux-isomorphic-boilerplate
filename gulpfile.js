@@ -1,5 +1,4 @@
 var gulp = require("gulp"),
-    browserSync = require("browser-sync").create(),
     browserify = require("browserify"),
     reactify = require("reactify"),
     watchify = require("watchify"),
@@ -52,7 +51,6 @@ gulp.task("scss", function() {
             browsers: ["last 2 versions", "ie >= 8"]
         }))
         .pipe(gulp.dest(path.DIST))
-        .pipe(browserSync.stream());
 });
 
 gulp.task("minifycss", function() {
@@ -88,13 +86,11 @@ gulp.task("watchify", ["serve"], function() {
         watcher.bundle()
             .on("error", function (err) {
                 $.util.log($.util.colors.red(err.message));
-                browserSync.notify(err.message);
                 $.util.beep();
                 this.emit("end");
             })
             .pipe(sourceStream("main.js"))
             .pipe(gulp.dest(path.DIST))
-            .pipe(browserSync.stream());
         $.util.log($.util.colors.green("Updated!", (Date.now() - updateStart) + "ms"));
     })
     .bundle()
@@ -104,8 +100,7 @@ gulp.task("watchify", ["serve"], function() {
         this.emit("end");
     })
     .pipe(sourceStream("main.js"))
-    .pipe(gulp.dest(path.DIST))
-    .pipe(browserSync.stream());
+    .pipe(gulp.dest(path.DIST));
 });
 
 gulp.task("browserify", function() {
@@ -157,7 +152,6 @@ gulp.task("cleanDist", function(done) {
 
 gulp.task("serve", function () {
     exec("node server/app.js");
-
 });
 
 gulp.task("gzip", function() {
@@ -174,17 +168,16 @@ gulp.task("default", function() {
 
     gulp.watch([path.SRC + "index.ejs"], ["html"]);
 
-    browserSync.watch(path.SRC + "scss/**/*.scss").on("change", function() {
-        gulp.start("css");
-    });
-
-    browserSync.watch([path.IMG, path.FONT]).on("change", function() {
-        gulp.start("assets");
-    });
 });
 
-gulp.task("site", ["changeSite"], function() {
-    gulp.start("default");
+
+gulp.task("deploy", function() {
+    if (process.env.NODE_ENV !== "production") {
+        return callback()
+   }
+   else {
+        runSequence("production")
+   }
 });
 
 gulp.task("production", function() {
