@@ -19,8 +19,10 @@ The boilerplate is a kickstarter if you like to work with the following stack
 $ git clone
 $ npm install
 $ gulp 
-$ open localhost:3090
+```
+open localhost:3090
 
+```sh
 $ npm test to run tests
 ```
 ### Heroku
