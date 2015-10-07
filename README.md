@@ -30,7 +30,7 @@ $ npm test
 ```
 ### Heroku
 
-Please notice, this boilerplate is optimised for heroku applications. That's why all the gulp dependencies are in `dependencies` instead of `devDependencies`. Because Heroku will run npm install --production and will skip all devDependicies, yet we need gulp to compile the project. Also please notice the npm hook script `postinstall` will run the task `gulp production` after running `npm install` on heroku server. It's not 
+Please notice, this boilerplate is optimised for heroku applications. That's why all the gulp dependencies are in `dependencies` instead of `devDependencies`. Because Heroku will run npm install --production and will skip all devDependicies, yet we need gulp to compile the project. Also please notice the npm hook script `postinstall` will run the task `gulp production` after running `npm install` on heroku server. 
 
 If you don't use Heroku to host your app, you can easily modify the gulpfile and the package.json to fill your needs.
 
@@ -58,3 +58,8 @@ Isomorphic javascript, or rather now Universal Javascript, means a javascript co
 Simply run npm test to launch test. Tests are launched by Karma and written with Jasmine. I choose Jasmine because I noticed Jest was really slow when it comes to test react components.
 
 Reactify is used to inject getter and setter to the object you want to test. It can be convenient in some cases.
+
+[TODO]
+- complete README
+- enable gzip compression for production
+- find a way to bring nodeJS warning into gulp process
