@@ -27,7 +27,6 @@ var path = {
 gulp.task("html", function() {
     return gulp.src(path.SRC + "index.ejs")
         .pipe(gulp.dest(path.DIST))
-        .pipe(browserSync.stream());
 });
 
 
@@ -170,12 +169,8 @@ gulp.task("default", function() {
 
 });
 
-
 gulp.task("deploy", function() {
-    if (process.env.NODE_ENV !== "production") {
-        return callback()
-   }
-   else {
+    if (process.env.NODE_ENV === "production") {
         runSequence("production")
    }
 });
