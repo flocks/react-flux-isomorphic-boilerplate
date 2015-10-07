@@ -16,7 +16,7 @@ The boilerplate is a kickstarter if you like to work with the following stack
 ## Quick Start
 
 ```sh
-$ git clone
+$ git clone https://github.com/flocks/react-flux-isomorphic-boilerplate.git
 $ npm install
 $ gulp 
 ```
