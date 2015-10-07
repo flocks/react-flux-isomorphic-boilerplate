@@ -23,14 +23,14 @@ $ open localhost:3090
 
 $ npm test to run tests
 ```
-Heroku
+### Heroku
 
 Please notice, this boilerplate is optimised for heroku applications. That's why all the gulp dependencies are in `dependencies` instead of `devDependencies`. Because Heroku will run npm install --production and will skip all devDependicies, yet we need gulp to compile the project ( browserify the js, uglify it, copy assets, optimise image..and so on). Also please notice the npm hook script `postinstall` will run the task `gulp production` after running `npm install` on heroku server.
 
 If you don't use Heroku to host your app, you can easily modify the gulpfile and the package.json to fill your needs.
 
 
-Gulp process
+### Gulp process
 
 `gulp default` task will prepare the /dist folder by copying all the assets ( images, fonts ) and index.ejs. It will compile all scss file into one single css file called main.css. Browserify will also compile all your js file into a single main.js file. Then it will launch the nodeJS app
 which renders the index.ejs. Obvisously, the task "watchify" is launched, so any change on your file will trigger Browserify to recompile the js. Please notice, it only re-compile the dependencies affected by the change. 
