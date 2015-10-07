@@ -44,3 +44,5 @@ Isomorphic javascript, or rather now Universal Javascript, means a javascript co
 Tests
 
 Simply run npm test to launch test. Tests are launched by Karma and written with Jasmine. I choose Jasmine because I noticed Jest was really slow when it comes to test react components.
+
+Reactify is used to inject getter and setter to the object you want to test. It can be convenient in some cases.
