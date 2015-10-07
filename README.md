@@ -1,5 +1,7 @@
+# react-flux-isomorphic-boilerplate
+***
 
-The boilerplate is a kickstarter if you like to work with the following stack
+This boilerplate is a kickstarter if you like to work with the following stack
 
 - ReactJS for UI component
 - Flux as global pattern 
@@ -22,12 +24,13 @@ $ gulp
 ```
 open localhost:3090
 
+To launch tests 
 ```sh
-$ npm test to run tests
+$ npm test
 ```
 ### Heroku
 
-Please notice, this boilerplate is optimised for heroku applications. That's why all the gulp dependencies are in `dependencies` instead of `devDependencies`. Because Heroku will run npm install --production and will skip all devDependicies, yet we need gulp to compile the project ( browserify the js, uglify it, copy assets, optimise image..and so on). Also please notice the npm hook script `postinstall` will run the task `gulp production` after running `npm install` on heroku server.
+Please notice, this boilerplate is optimised for heroku applications. That's why all the gulp dependencies are in `dependencies` instead of `devDependencies`. Because Heroku will run npm install --production and will skip all devDependicies, yet we need gulp to compile the project. Also please notice the npm hook script `postinstall` will run the task `gulp production` after running `npm install` on heroku server. It's not 
 
 If you don't use Heroku to host your app, you can easily modify the gulpfile and the package.json to fill your needs.
 
