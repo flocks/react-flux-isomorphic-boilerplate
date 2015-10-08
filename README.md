@@ -49,7 +49,7 @@ which renders the index.ejs. Obvisously, the task "watchify" is launched, so any
 
 Isomorphic javascript, or rather now Universal Javascript, means a javascript codebase which can be exectuted both server and client side. You app become easily indexable by google. Plus it considerably increase the "perceived time load" of your app. The user experence become improved, especially on mobile device with small brandwitdh. 
 
-[ link to my article ]
+https://medium.com/@fteissier/going-isomorphic-with-reactjs-and-flux-73873a2f7f8
 
 ***
 
